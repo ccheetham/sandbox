@@ -1,10 +1,5 @@
 = Jekyll AsciiDoc Plugin (powered by Asciidoctor)
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Paul Rayner <https://github.com/paulrayner[@paulrayner]>
-// Settings:
-// :idprefix:
-// :idseparator: -
-// ifndef::env-github[:icons: font]
-// ifdef::env-github,env-browser[]
 :toc: macro
 :toclevels: 1
 // endif::[]
