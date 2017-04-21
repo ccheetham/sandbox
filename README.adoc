@@ -4,7 +4,7 @@ Have something you'd like to contribute to the test of the manager? We welcome p
 
 Please refer back to this document as a checklist before issuing any pull request; this will save time for everyone!
 
-:toc:
+:toc: macro
 :toclevels: 1
 :!toc-title:
 
@@ -16,6 +16,8 @@ Please refer back to this document as a checklist before issuing any pull reques
 :uri-gitscm-rewriting-history: http://git-scm.com/book/en/Git-Tools-Rewriting-History
 :uri-gitscm-commit-guideline: https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines
 :uri-git-man-page: https://www.kernel.org/pub/software/scm/git/docs/
+
+toc::[]
 
 == Understanding the Basics
 
