@@ -9,5 +9,5 @@ Some chapter text.
 == Links
 
 :uri-project: https://github.com/ccheetham/sandbox
-:uri-project-issues:  {uri-project}/issues
-{uri-issues}[Issue Tracker]
+:uri-project-issues: {uri-project}/issues
+{uri-project-issues}[Issue Tracker]
