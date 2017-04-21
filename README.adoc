@@ -1,5 +1,9 @@
 = Contributing
 
+Have something you'd like to contribute to the test of the manager? We welcome pull requests, but ask that you carefully read this document first to understand how best to submit them; what kind of changes are likely to be accepted; and what to expect from the team when evaluating your submission.
+
+Please refer back to this document as a checklist before issuing any pull request; this will save time for everyone!
+
 :toc:
 :toclevels: 1
 :!toc-title:
@@ -12,10 +16,6 @@
 :uri-gitscm-rewriting-history: http://git-scm.com/book/en/Git-Tools-Rewriting-History
 :uri-gitscm-commit-guideline: https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines
 :uri-git-man-page: https://www.kernel.org/pub/software/scm/git/docs/
-
-Have something you'd like to contribute to the test of the manager? We welcome pull requests, but ask that you carefully read this document first to understand how best to submit them; what kind of changes are likely to be accepted; and what to expect from the team when evaluating your submission.
-
-Please refer back to this document as a checklist before issuing any pull request; this will save time for everyone!
 
 == Understanding the Basics
 
