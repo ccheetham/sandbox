@@ -1,41 +1,21 @@
-= Jekyll AsciiDoc Plugin (powered by Asciidoctor)
-Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Paul Rayner <https://github.com/paulrayner[@paulrayner]>
-
-:toc: macro
+= Contributing
+:toc: preamble
 :toclevels: 1
-// endif::[]
-// ifdef::env-github[]
-// :branch: master
-// :status:
-// :outfilesuffix: .adoc
 :!toc-title:
-// :caution-caption: :fire:
-// :important-caption: :exclamation:
-// :note-caption: :paperclip:
-// :tip-caption: :bulb:
-// :warning-caption: :warning:
-// endif::[]
-// Aliases:
-// :path-config: pass:q[[.path]___config.yml__]
-// :conum-guard: {sp}
-// ifndef::icons[:conum-guard: {sp}#{sp}]
+:uri-project: https://github.com/pivotalsoftware/session-managers
+:uri-project-issues: {uri-project}/issues
+:uri-project-new-issue: {uri-project-issues}/new
+:uri-github-pull-requests: https://help.github.com/categories/collaborating-with-issues-and-pull-requests
+:uri-github-fork-and-edit: https://github.com/blog/844-forking-with-the-edit-button
+:uri-gitscm-rewriting-history: http://git-scm.com/book/en/Git-Tools-Rewriting-History
+:uri-gitscm-commit-guideline: https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines
+:uri-git-man-page: https://www.kernel.org/pub/software/scm/git/docs/
 
+Have something you'd like to contribute to the test of the manager? We welcome pull requests, but ask that you carefully read this document first to understand how best to submit them; what kind of changes are likely to be accepted; and what to expect from the team when evaluating your submission.
 
-A plugin for {uri-jekyll}[Jekyll] (>= 2.3.0) that converts the {uri-asciidoc}[AsciiDoc] source files in your site to HTML pages using {uri-asciidoctor}[Asciidoctor].
+Please refer back to this document as a checklist before issuing any pull request; this will save time for everyone!
 
-ifeval::['{branch}' == 'master']
-NOTE: You're viewing the documentation for the upcoming release.
-If you're looking for the documentation for an older release, please refer to one of the following branches: +
-{uri-repo}/tree/2.0.x#readme[2.0.x]
-&hybull;
-{uri-repo}/tree/1.1.x#readme[1.1.x]
-&hybull;
-{uri-repo}/tree/1.0.x#readme[1.0.x]
-endif::[]
-
-toc::[]
-
-== Chapter 1
+== Understanding the Basics
 
 test
 
