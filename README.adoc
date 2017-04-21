@@ -1,6 +1,7 @@
 = Contributing
 :toc: preamble
 :toclevels: 1
+:!toc-title:
 
 :uri-project: https://github.com/pivotalsoftware/session-managers
 :uri-project-issues: {uri-project}/issues
