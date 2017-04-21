@@ -1,6 +1,6 @@
 = Contributing
 
-:toc: left
+:toc:
 :toclevels: 1
 :!toc-title:
 
