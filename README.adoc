@@ -1,30 +1,74 @@
-= Contributing
-
-Have something you'd like to contribute to the test of the manager? We welcome pull requests, but ask that you carefully read this document first to understand how best to submit them; what kind of changes are likely to be accepted; and what to expect from the team when evaluating your submission.
-
-Please refer back to this document as a checklist before issuing any pull request; this will save time for everyone!
-
+= Jekyll AsciiDoc Plugin (powered by Asciidoctor)
+Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Paul Rayner <https://github.com/paulrayner[@paulrayner]>
+// Settings:
+:idprefix:
+:idseparator: -
+ifndef::env-github[:icons: font]
+ifdef::env-github,env-browser[]
 :toc: macro
 :toclevels: 1
+endif::[]
+ifdef::env-github[]
+:branch: master
+:status:
+:outfilesuffix: .adoc
 :!toc-title:
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+// Aliases:
+:path-config: pass:q[[.path]___config.yml__]
+:conum-guard: {sp}
+ifndef::icons[:conum-guard: {sp}#{sp}]
+// URIs:
+:uri-repo: https://github.com/asciidoctor/jekyll-asciidoc
+:uri-issues: {uri-repo}/issues
+:uri-search-issues: {uri-repo}/search?type=Issues
+:uri-chat: https://gitter.im/asciidoctor/asciidoctor
+:uri-ci-travis: https://travis-ci.org/asciidoctor/jekyll-asciidoc
+:uri-ci-appveyor: https://ci.appveyor.com/project/asciidoctor/jekyll-asciidoc
+:uri-gem: http://rubygems.org/gems/jekyll-asciidoc
+:uri-gem-asciidoctor: http://rubygems.org/gems/asciidoctor
+:uri-asciidoc: http://asciidoc.org
+:uri-asciidoctor: http://asciidoctor.org
+:uri-asciidoctor-backends: https://github.com/asciidoctor/asciidoctor-backends
+:uri-asciidoctor-docs: {uri-asciidoctor}/docs
+:uri-asciidoctor-diagram: {uri-asciidoctor-docs}/asciidoctor-diagram
+:uri-asciidoctor-discuss: http://discuss.asciidoctor.org
+:uri-asciidoctor-manual: {uri-asciidoctor-docs}/user-manual
+:uri-asciidoc-practices: {uri-asciidoctor-docs}/asciidoc-recommended-practices
+:uri-jaq: https://github.com/asciidoctor/jekyll-asciidoc-quickstart
+:uri-jekyll: https://jekyllrb.com
+:uri-jekyll-docs: {uri-jekyll}/docs
+:uri-jekyll-discuss: https://talk.jekyllrb.com
+:uri-front-matter: {uri-jekyll-docs}/frontmatter
+:uri-liquid-templates: {uri-jekyll-docs}/templates
+:uri-variables: {uri-jekyll-docs}/variables
+:uri-graphviz: http://www.graphviz.org
+:uri-tilt: https://github.com/rtomayko/tilt
+:uri-yaml: https://en.wikipedia.org/wiki/YAML
+:uri-guide-publish-gem: http://guides.rubygems.org/publishing/#publishing-to-rubygemsorg
 
-:uri-project: https://github.com/pivotalsoftware/session-managers
-:uri-project-issues: {uri-project}/issues
-:uri-project-new-issue: {uri-project-issues}/new
-:uri-github-pull-requests: https://help.github.com/categories/collaborating-with-issues-and-pull-requests
-:uri-github-fork-and-edit: https://github.com/blog/844-forking-with-the-edit-button
-:uri-gitscm-rewriting-history: http://git-scm.com/book/en/Git-Tools-Rewriting-History
-:uri-gitscm-commit-guideline: https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines
-:uri-git-man-page: https://www.kernel.org/pub/software/scm/git/docs/
+ifdef::status[]
+image:https://img.shields.io/gem/v/jekyll-asciidoc.svg[Latest Release, link={uri-gem}]
+image:https://img.shields.io/badge/license-MIT-blue.svg[MIT License, link=#copyright-and-license]
+image:https://img.shields.io/travis/asciidoctor/jekyll-asciidoc/master.svg[Build Status (Travis CI), link={uri-ci-travis}]
+image:https://ci.appveyor.com/api/projects/status/3cf1f8p2cyoaoc25/branch/master?svg=true&passingText=green%20bar&failingText=%23fail&pendingText=checking[Build Status (AppVeyor), link={uri-ci-appveyor}]
+endif::[]
+
+A plugin for {uri-jekyll}[Jekyll] (>= 2.3.0) that converts the {uri-asciidoc}[AsciiDoc] source files in your site to HTML pages using {uri-asciidoctor}[Asciidoctor].
+
+ifeval::['{branch}' == 'master']
+NOTE: You're viewing the documentation for the upcoming release.
+If you're looking for the documentation for an older release, please refer to one of the following branches: +
+{uri-repo}/tree/2.0.x#readme[2.0.x]
+&hybull;
+{uri-repo}/tree/1.1.x#readme[1.1.x]
+&hybull;
+{uri-repo}/tree/1.0.x#readme[1.0.x]
+endif::[]
 
 toc::[]
-
-== Understanding the Basics
-
-Some chapter text.
-
-== Links
-
-:uri-project: https://github.com/ccheetham/sandbox
-:uri-project-issues: {uri-project}/issues
-{uri-project-issues}[Issue Tracker]
