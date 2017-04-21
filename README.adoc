@@ -1,4 +1,5 @@
-:toc: macro
+= Contributing
+:toc: preamble
 :toclevels: 1
 
 :uri-project: https://github.com/pivotalsoftware/session-managers
@@ -9,14 +10,9 @@
 :uri-gitscm-rewriting-history: http://git-scm.com/book/en/Git-Tools-Rewriting-History
 :uri-git-man-page: https://www.kernel.org/pub/software/scm/git/docs/
 
-= Contributing
-
 Have something you'd like to contribute to the test of the manager? We welcome pull requests, but ask that you carefully read this document first to understand how best to submit them; what kind of changes are likely to be accepted; and what to expect from the team when evaluating your submission.
 
 Please refer back to this document as a checklist before issuing any pull request; this will save time for everyone!
-
-toc::[]
-
 
 == Understanding the Basics
 
