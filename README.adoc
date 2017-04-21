@@ -1,0 +1,12 @@
+= Title
+
+toc::[]
+
+== Chapter
+
+Some chapter text.
+
+== Links
+
+:uri-issues: link:/issues
+{uri-issues}[Issue Tracker]
