@@ -1,41 +1,11 @@
 = Jekyll AsciiDoc Plugin (powered by Asciidoctor)
 Dan Allen <https://github.com/mojavelinux[@mojavelinux]>; Paul Rayner <https://github.com/paulrayner[@paulrayner]>
-// Settings:
-// :idprefix:
-// :idseparator: -
-// ifndef::env-github[:icons: font]
-// ifdef::env-github,env-browser[]
+
 :toc: macro
 :toclevels: 1
-// endif::[]
-// ifdef::env-github[]
-// :branch: master
-// :status:
-// :outfilesuffix: .adoc
 :!toc-title:
-// :caution-caption: :fire:
-// :important-caption: :exclamation:
-// :note-caption: :paperclip:
-// :tip-caption: :bulb:
-// :warning-caption: :warning:
-// endif::[]
-// Aliases:
-// :path-config: pass:q[[.path]___config.yml__]
-// :conum-guard: {sp}
-// ifndef::icons[:conum-guard: {sp}#{sp}]
-
 
 A plugin for {uri-jekyll}[Jekyll] (>= 2.3.0) that converts the {uri-asciidoc}[AsciiDoc] source files in your site to HTML pages using {uri-asciidoctor}[Asciidoctor].
-
-ifeval::['{branch}' == 'master']
-NOTE: You're viewing the documentation for the upcoming release.
-If you're looking for the documentation for an older release, please refer to one of the following branches: +
-{uri-repo}/tree/2.0.x#readme[2.0.x]
-&hybull;
-{uri-repo}/tree/1.1.x#readme[1.1.x]
-&hybull;
-{uri-repo}/tree/1.0.x#readme[1.0.x]
-endif::[]
 
 toc::[]
 
