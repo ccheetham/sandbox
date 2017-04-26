@@ -1,6 +1,5 @@
 ## Publishing Requirements
-To configure artifactory credentials, do one of:
-
+Do one of:
 * edit `~/.pivotal/credentials.properties` to include
   * `tcsArtifactoryUser` - The username for Artifactory instance
   * `tcsArtifactoryPassword` - The password for Artifactory user
