@@ -12,6 +12,8 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 Table of Contents
 
+NOTE: Watch the meeting https://pivotal.zoom.us/recording/play/81Ps1ssIuRZ60NehGmkB9st9yhznmu_WzIkbuEFFM82GoWxgQHxZlcO1zFBinc10[here, window="_blank"]
+
 == Goals
 
 * Primary
