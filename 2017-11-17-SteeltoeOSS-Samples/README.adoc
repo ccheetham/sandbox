@@ -44,7 +44,7 @@ Table of Contents
 == Gherkin
 
 * Defines Features (in feature files, i.e. files with `.feature` extention)
-** Feature, composed of Scenarios (or Scenarios Outlines) 
+** Feature, composed of Scenarios (or Scenarios Outlines)
 *** Scenario composed of Steps
 **** Step is an instance of a Given/When/Then/And
 ***** Given: defines an assumption of system state
@@ -100,7 +100,7 @@ https://github.com/SteeltoeOSS/Samples/blob/dev/steps/browser_steps.py#L32-L34[g
 *** `cf ...`
 
 * CloudFoundry
-** each scenario run in a uniqe space that, by deault, deleted after scenario
+** each scenario run in a uniqe space that, by default, deleted after scenario
 ** host names changed from APP to APP-SPACE
 ** domain name x.y.x changed to configured domain (`cf_domain`)
 
@@ -153,10 +153,10 @@ $ behave -t ~netcoreapp2.0
 $ behave -t win10-x64
 
 # netcoreapp2.0 framework AND win10-x64 runtime
-$ behave  -t netcoreapp2.0 -t win10-x64
+$ behave -t netcoreapp2.0 -t win10-x64
 
 # win10-x64 runtime OR ubuntu.14.04-x64 runtime
-$ behave  -t netcoreapp2.0 -t win10-x64,ubuntu.14.04-x64
+$ behave -t win10-x64,ubuntu.14.04-x64
 ----
 
 == Demos
