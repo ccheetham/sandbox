@@ -1,0 +1,176 @@
+= SteeltoeOSS Sample Testing Demo
+Meeting Outline
+:toc: preamble
+:toclevels: 2
+:!toc-title:
+ifdef::env-github,env-browser[:outfilesuffix: .adoc]
+:linkattrs:
+:uri-behave: http://pythonhosted.org/behave/
+:uri-gherkin: https://github.com/cucumber/cucumber/wiki/Gherkin
+:uri-cucumber: https://cucumber.io/docs
+:uri-concourse: https://concourse.ci/
+
+Table of Contents
+
+== Goals
+
+* Primary
+** Run tests using supported OS/SDKs _(e.g., Ubuntu16/.NET SDK 2.0)_
+** Run tests using supported frameworks _(e.g., net461)_
+** Run tests using supported runtime _(e.g., win10-x64)_
+* Secondary
+** Automated CI _(e.g., Concourse)_
+
+== Overview
+
+* {uri-behave}[_behave_, window="_blank"]
+** basis for test harness
+** Cucumber-like
+** written in Python
+** member of the BDD space (as opposed to TDD)
+** uses _Gherkin_ to spec behavior
+
+* {uri-gherkin}[_Gherkin_, window="_blank"]
+** business-readable DSL
+** part of the _Cucumber_ project
+
+* {uri-cucumber}[_Cucumber_, window="_blank"]
+** 2 parts: specs, glue code
+** specs written in Gherkin
+** glue code choice of development team
+
+* {uri-concourse}[_Concourse_, window="_blank"]
+
+== Gherkin
+
+* Defines Features (in feature files, i.e. files with `.feature` extention)
+** Feature, composed of Scenarios (or Scenarios Outlines) 
+*** Scenario composed of Steps
+**** Step is an instance of a Given/When/Then/And
+***** Given: defines an assumption of system state
+***** When: defines an action
+***** Then: defines an expected result
+***** And: Synonym for Given/When/Then
+* Examples
+** https://github.com/SteeltoeOSS/Samples/tree/dev/Connectors/src/AspDotNetCore/Redis[Samples/Connectors/src/AspDotNetCore/Redis, window="_blank"]
+** https://github.com/SteeltoeOSS/Samples/tree/dev/Configuration/src/AspDotNetCore/Simple[Samples/Configuration/src/AspDotNetCore/Simple, window="_blank"]
+
+== behave
+
+=== behave: glue
+
+* step defintions: https://github.com/SteeltoeOSS/Samples/tree/dev/steps[steps/]
+
+_Example: Given you have .NET Core SDK 2.0 installed_
+
+https://github.com/SteeltoeOSS/Samples/blob/dev/Security/src/CloudFoundrySingleSignon/CloudFoundrySingleSignon.feature#L8[step, window="_blank"] ->
+https://github.com/SteeltoeOSS/Samples/blob/dev/steps/tool_steps.py#L5-L10[glue, window="_blank"]
+
+_Example: When you login with "testuser"/"Password1!"_
+
+https://github.com/SteeltoeOSS/Samples/blob/dev/Security/src/CloudFoundrySingleSignon/CloudFoundrySingleSignon.feature#L38[step, window="_blank"] ->
+https://github.com/SteeltoeOSS/Samples/blob/dev/steps/browser_steps.py#L21-L26[glue, window="_blank"]
+
+_Example: Then you should see "Your About page."_
+
+https://github.com/SteeltoeOSS/Samples/blob/dev/Security/src/CloudFoundrySingleSignon/CloudFoundrySingleSignon.feature#L40[step, window="_blank"] ->
+https://github.com/SteeltoeOSS/Samples/blob/dev/steps/browser_steps.py#L32-L34[glue, window="_blank"]
+
+* environment/context: https://github.com/SteeltoeOSS/Samples/tree/dev/environment.py[environment.py]
+
+=== behave: execution environment
+
+* logging
+** file: `test.log`
+** config: `logging.ini`
+
+* output
+** directory: `test.out`
+** override: `-Doutput`
+
+* sandboxes
+** each Scenario gets a sandbox
+*** `test.out/sandboxes/NAME`
+** most commands run in sandbox
+*** `git ...`
+*** `mvn ...`
+** some commands run in sample project dir
+*** `dotnet ...`
+** some commands run in sandbox or sample project dir
+*** `cf ...`
+
+* CloudFoundry
+** each scenario run in a uniqe space that, by deault, deleted after scenario
+** host names changed from APP to APP-SPACE
+** domain name x.y.x changed to configured domain (`cf_domain`)
+
+* test background processes
+** override: `-Dwindowed=yes`
+** non-windowed (default)
+*** processes run in background, stdout/stderr output to shell
+** windowed
+*** processes run in own windows, stdout/stderr output to window
+*** `START` on Windows
+*** `xterm` on *nix
+
+=== behave: CLI
+
+* Setup: https://github.com/SteeltoeOSS/Samples/blob/dev/TESTS.md[Samples/TEST.md, window="_blank"]
+
+* Examples
+
+_Example 1: run all samples_
+[source,sh]
+----
+$ behave
+----
+
+_Example 2: run all Configuration samples_
+[source,sh]
+----
+$ behave Configuration
+----
+
+_Example 3: run all Configuration Simple sample_
+[source,sh]
+----
+$ behave Configuration/src/AspDotNetCore/Simple/Simple.feature
+
+# or
+$ behave Configuration/src/AspDotNetCore/Simple
+----
+
+_Example 4: using tags_
+[source,sh]
+----
+# netcoreapp2.0 framework
+$ behave -t netcoreapp2.0
+
+# everything BUT netcoreapp2.0 framework
+$ behave -t ~netcoreapp2.0
+
+# win10-x64 runtime
+$ behave -t win10-x64
+
+# netcoreapp2.0 framework AND win10-x64 runtime
+$ behave  -t netcoreapp2.0 -t win10-x64
+
+# win10-x64 runtime OR ubuntu.14.04-x64 runtime
+$ behave  -t netcoreapp2.0 -t win10-x64,ubuntu.14.04-x64
+----
+
+== Demos
+
+Sample: https://github.com/SteeltoeOSS/Samples/blob/dev/Configuration/src/AspDotNetCore/CloudFoundry/CloudFoundry.feature#L17-L27[Configuration/src/AspDotNetCore/CloudFoundry, window="_blank"]
+
+* tail test.log
+* run: `behave Configuration/src/AspDotNetCore/CloudFoundry -tnetcoreapp2.0 -tubuntu.14.04-x64`
+
+* demos
+** set options to defaults
+** enable windowed
+** disable cleanup
+
+== Concourse
+
+https://ci.spring.io/teams/steeltoe/pipelines/steeltoe-samples[Samples Pipeline, window="_blank"]
