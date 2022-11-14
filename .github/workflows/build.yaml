@@ -3,9 +3,10 @@ name: Build
 # run-name: ${{ github.actor }} is building
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: windows-2022
     steps:
-    - uses: actions/setup-dotnet@v3
+    - name: Setup .NET SDK 6.0.x
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.0.x'
