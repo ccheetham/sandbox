@@ -1,7 +1,10 @@
 ---
 name: MyLib NuGet
 # run-name: ${{ github.actor }} is building
-on: [push]
+on:
+  push:
+    tags:
+    - '*'
 jobs:
   Build:
     runs-on: windows-2022
