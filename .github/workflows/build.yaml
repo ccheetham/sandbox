@@ -3,6 +3,8 @@ name: MyLib NuGet
 # run-name: ${{ github.actor }} is building
 on:
   push:
+    branches:
+    - '*'
     tags:
     - '*'
 jobs:
