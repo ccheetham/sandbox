@@ -1,0 +1,14 @@
+---
+name: Sample Workflow
+on:
+  push:
+    branches:
+    - '*'
+    tags:
+    - '*'
+    workflow_dispatch:
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "building"
