@@ -9,11 +9,11 @@ on:
   workflow_dispatch:
     inputs:
       foo:
-        description: 'infamous foo'
+        description: 'foo string'
         required: false
         type: string
 jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "building"
+    - run: echo "building ${{ github.event.inputs.foo }}"
