@@ -19,7 +19,7 @@ jobs:
     - name: Clone Repository (Latest)
       uses: actions/checkout@v2
       if: github.event.inputs.foo == ''
-    - name: Clone Repository (Custom Ref)
+    - name: Clone Repository (${{ github.event.inputs.foo }})
       uses: actions/checkout@v2
       if: github.event.inputs.foo != ''
       with:
