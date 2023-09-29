@@ -1,1 +1,89 @@
 == GitHub Runners
+
+=== Windows
+
+==== Service Accounts
+
+===== Security
+
+The account used for the service must be able to read/write the runner's work area, which by default is `C:\actions-runner`.
+The directory will initially likely be owned by the `Adminstrator` account and will need to be changed before jobs can be successfully run.
+
+To change using _Explorer_:
+
+* right-click the work folder (default `C:\actions-runner`)
+* select _Properties_
+* click the _Security_ tab
+* click the _Advanced_ button
+* click the _Change_ link to the right of the _Owner:_ text at the top of the dialog
+* enter the service account (default `NETWORK SERVICE`)
+* click _OK_
+
+===== Environment
+
+Restart the runner service if the environment has changed:
+
+[shell]
+----
+> Restart-Service "actions.runner.*"
+----
+
+==== Tools
+
+===== PowerShell: powershell vs pwsh
+
+The PowerShell that ships with Windows is `powershell.exe`, and is currently version 5.1.x.
+
+The PowerShell maintained by the community is `pwsh.exe` and is currently version 7.3.x.
+
+The community-maintained PowerShell has a substantial amount of additional functionality and is recommended for non-trivial scripting.
+See https://github.com/PowerShell/PowerShell for installation instructions, or use a package manager.
+
+Sample PowerShell invocations in a GitHub action:
+
+[yaml]
+----
+steps:
+   - name: Windows PowerShell
+     shell: powershell
+     run: "Hi from Microsoft"
+   - name: Community PowerShell
+     shell: pwsh
+     run: "Hi from the Community"
+----
+
+You can add a version check to your PowerShell scripts to ensure a minimum PowerShell version by adding a `#Requires -Version ...` comment to the top of your script.
+
+[pwsh]
+----
+> cat .\foo.ps1
+#Requires -Version 7.3
+Write-Host "version check passed"
+----
+
+When run using community version:
+
+[pwsh]
+----
+> .\foo.ps1
+version check passed
+----
+
+When run using Microsoft version:
+
+[pwsh]
+----
+> .\foo.ps1
+.\foo.ps1 : The script 'foo.ps1' cannot be run because it contained a "#requires" statement for Windows PowerShell 7.3. The version of Windows PowerShell that is
+required by the script does not match the currently running version of Windows PowerShell 5.1.22621.1778.
+At line:1 char:1
++ .\foo.ps1
++ ~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (foo.ps1:String) [], ScriptRequiresException
+    + FullyQualifiedErrorId : ScriptRequiresUnmatchedPSVersion
+----
+
+===== Package Managers
+
+Both https://chocolatey.org/[Chocolately,target=_new] and https://scoop.sh/[Scoop,target=_new] provide access to many tools such as `git`.
+Note if using Scoop, be sure the runner service account can find the Scoop installation.
